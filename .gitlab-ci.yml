@@ -9,11 +9,8 @@ stages:
     - wget https://bootstrap.pypa.io/get-pip.py
     - python3 get-pip.py
     - python3 -m pip install kas
-    - wget -q 'https://downloads.rclone.org/rclone-current-linux-amd64.zip'
-    - unzip -q rclone-current-linux-amd64.zip
-    - mv rclone-*-linux-amd64/rclone ~/.local/bin/
-    - rm -rf rclone-*-linux-amd64*
   after_script:
+    - ./script/upload-error-report $ERR_REPORT_USERNAME $ERR_REPORT_EMAIL $CI_PROJECT_DIR
     - rm -rf build
     - ./scripts/ci-cleanup.sh
   cache:
