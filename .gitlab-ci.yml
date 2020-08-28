@@ -10,7 +10,7 @@ stages:
     - python3 get-pip.py
     - python3 -m pip install kas
   after_script:
-    - ./script/upload-error-report $ERR_REPORT_USERNAME $ERR_REPORT_EMAIL $CI_PROJECT_DIR
+    - ./scripts/upload-error-report $ERR_REPORT_USERNAME $ERR_REPORT_EMAIL $CI_PROJECT_DIR
     - rm -rf build
     - ./scripts/ci-cleanup.sh
   cache:
